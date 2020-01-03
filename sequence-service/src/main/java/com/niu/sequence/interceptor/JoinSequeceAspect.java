@@ -11,6 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,7 +27,7 @@ import java.util.Date;
 @EnableAspectJAutoProxy()
 @Slf4j
 public class JoinSequeceAspect {
-    private static  final SimpleDateFormat sdf = new SimpleDateFormat();
+    private static  final ThreadLocal<SimpleDateFormat> sdf=new ThreadLocal();
 
     /***
     * @Description:定义连接点,标注有@JoinSequence的注解都会织入该连接点
@@ -92,13 +93,16 @@ public class JoinSequeceAspect {
     */
     public String joinSequence(SequenceRequest request,String sequence) {
         String joinPoint = request.getJoinPoint();
-
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+        sdf.set(simpleDateFormat);
         switch (joinPoint) {
             case "-1" :
                 return joinSuxAndPref(request,sequence);
             default:
-                sdf.applyPattern(request.getDateFormat());
-                return joinSuxAndPref(request,sequence)+sdf.format(new Date());
+                sdf.get().applyPattern(request.getDateFormat());
+                sequence= joinSuxAndPref(request,sequence)+sdf.get().format(new Date());
+                sdf.remove();
+                return sequence;
         }
     }
     /***

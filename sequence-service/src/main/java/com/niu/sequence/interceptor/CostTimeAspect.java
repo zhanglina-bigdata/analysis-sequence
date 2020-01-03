@@ -40,7 +40,7 @@ public class CostTimeAspect {
     @ApiModelProperty("花费时间/毫秒")
     private long costMill;
     @ApiModelProperty("时间格式化")
-    private static  final DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+    private static  final ThreadLocal<DateFormat> format=new ThreadLocal();
 
     @Before("@annotation(com.niu.sequence.annotation.CostTime)")
     public void entryMethod(JoinPoint joinPoint) {
@@ -49,13 +49,15 @@ public class CostTimeAspect {
     }
     @After("@annotation(com.niu.sequence.annotation.CostTime)")
     public void leaveMethod(){
+        format.set(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS"));
         this.endTime=System.currentTimeMillis();
         Date date = new Date();
         date.setTime(startTime);
-        startDate= format.format(date);
+        startDate= format.get().format(date);
         date.setTime(endTime);
-        endDate=format.format(date);
+        endDate=format.get().format(date);
         costMill=endTime-startTime;
         log.info(this.toString());
+        format.remove();
     }
 }
