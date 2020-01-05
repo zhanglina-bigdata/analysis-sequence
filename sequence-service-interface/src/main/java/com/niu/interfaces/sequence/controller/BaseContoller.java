@@ -1,4 +1,5 @@
-package com.niu.sequence.controller;
+package com.niu.interfaces.sequence.controller;
+
 
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,4 +19,7 @@ public class BaseContoller {
     public static  String getApp(){
         return  APP_NAME_PREFIX+"/"+VERSION;
     }
+
+
+
 }

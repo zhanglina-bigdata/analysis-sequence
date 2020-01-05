@@ -1,11 +1,8 @@
 package com.niu.sequence;
-import com.niu.sequence.interceptor.JoinSequeceAspect;
 import com.niu.sequence.service.SnowSequenceService;
-import com.niu.sequence.service.impl.SnowSnowSequenceServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.aop.aspectj.annotation.AspectJProxyFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;

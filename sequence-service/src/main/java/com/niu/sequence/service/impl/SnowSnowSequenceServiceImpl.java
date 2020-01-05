@@ -1,10 +1,9 @@
 package com.niu.sequence.service.impl;
 
 import cn.hutool.core.lang.Snowflake;
-import com.niu.sequence.annotation.CostTime;
 import com.niu.sequence.service.SnowSequenceService;
+import com.niu.sequence.annotation.CostTime;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @program: analysis-sequence

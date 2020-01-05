@@ -1,6 +1,7 @@
 package com.niu.sequence.controller;
 
-import com.niu.sequence.model.BaseResponse;
+import com.niu.interfaces.sequence.controller.BaseContoller;
+import com.niu.interfaces.sequence.model.BaseResponse;
 import com.niu.sequence.service.SnowSequenceService;
 import com.niu.sequence.service.UUIDSequenceService;
 import io.swagger.annotations.Api;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @create: 2019-12-31 12:00
  **/
 @RestController
-@RequestMapping(value =BaseContoller.APP_NAME_PREFIX+"/"+BaseContoller.VERSION+"/sequence",produces = MediaType.APPLICATION_JSON_VALUE )
+@RequestMapping(value = BaseContoller.APP_NAME_PREFIX+"/"+ BaseContoller.VERSION+"/sequence",produces = MediaType.APPLICATION_JSON_VALUE )
 @Slf4j
 @Api(value = "SequenceController")
 public class SequenceController {
@@ -37,6 +38,7 @@ public class SequenceController {
         log.info(snowSequenceService==null?"":"false");
         String sequence = snowSequenceService.getSequence();
             if(StringUtils.isEmpty(sequence)) {
+
                 return BaseResponse.builder().code(HttpStatus.BAD_REQUEST.value()).msg("序列号不存在").result(null).build();
             }
         return BaseResponse.builder().code(HttpStatus.OK.value()).msg("success").result(sequence).build();

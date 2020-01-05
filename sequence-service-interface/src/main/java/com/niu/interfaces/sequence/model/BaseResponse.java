@@ -1,4 +1,4 @@
-package com.niu.sequence.model;
+package com.niu.interfaces.sequence.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

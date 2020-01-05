@@ -1,6 +1,8 @@
-package com.niu.sequence.service;
+package com.niu.sequence;
 
-import com.niu.sequence.model.request.SequenceRequest;
+import com.niu.interfaces.sequence.model.request.SequenceRequest;
+
+import com.niu.sequence.service.EmailSequenceService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

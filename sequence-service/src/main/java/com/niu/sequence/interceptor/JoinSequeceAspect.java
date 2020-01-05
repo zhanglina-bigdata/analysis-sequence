@@ -1,7 +1,7 @@
 package com.niu.sequence.interceptor;
 
 import com.niu.sequence.annotation.JoinSequence;
-import com.niu.sequence.model.request.SequenceRequest;
+import com.niu.interfaces.sequence.model.request.SequenceRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -11,7 +11,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -52,7 +51,7 @@ public class JoinSequeceAspect {
         // 获取方法入参
         Object[] args= joinPoint.getArgs();
         SequenceRequest request=null;
-        if(args.length!=0) {
+        if(args.length!=0 && args[0]!=null) {
             request = (SequenceRequest) args[0];
         }
         else {

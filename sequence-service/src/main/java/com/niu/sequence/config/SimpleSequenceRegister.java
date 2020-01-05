@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @create: 2019-12-31 14:27
  **/
 @Slf4j
-public class SimpleSequenceRegister implements SequenceRegister {
+public class SimpleSequenceRegister implements com.niu.sequence.config.SequenceRegister {
 
     private static  ConcurrentHashMap<String,Object> sequenceMap = new ConcurrentHashMap<>();
 

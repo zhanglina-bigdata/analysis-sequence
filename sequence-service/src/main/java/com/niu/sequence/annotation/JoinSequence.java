@@ -13,6 +13,6 @@ public @interface JoinSequence {
     String preOvverride() default  "_";
     String suffix() default  "";
     String sufOverride() default "_";
-    String dateformat() default "yyyymmdd";
+    String dateformat() default "yyyyMMdd";
     DateJoinPointEnum joinpoint() default  DateJoinPointEnum.NONE;
 }

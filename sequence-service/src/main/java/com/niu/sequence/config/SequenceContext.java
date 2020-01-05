@@ -7,20 +7,20 @@ package com.niu.sequence.config;
  * @create: 2019-12-31 14:42
  **/
 public class SequenceContext {
-    private SequenceRegister sequenceRegister;
+    private com.niu.sequence.config.SequenceRegister sequenceRegister;
 
     public SequenceContext() {
-        sequenceRegister= new SimpleSequenceRegister();
+        sequenceRegister= new com.niu.sequence.config.SimpleSequenceRegister();
     }
 
-    public SequenceContext(SequenceRegister sequenceRegister) {
+    public SequenceContext(com.niu.sequence.config.SequenceRegister sequenceRegister) {
         if(sequenceRegister ==null) {
             new SequenceContext();
         }
         this.sequenceRegister = sequenceRegister;
     }
 
-    public void setSequenceRegister(SequenceRegister sequenceRegister) {
+    public void setSequenceRegister(com.niu.sequence.config.SequenceRegister sequenceRegister) {
         this.sequenceRegister = sequenceRegister;
     }
 }

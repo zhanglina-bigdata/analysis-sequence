@@ -1,0 +1,13 @@
+server:
+  port: 8786
+spring:
+  profiles:
+    active: dev
+  application:
+    name: analysis-niu-seqence-service
+  main:
+    allow-bean-definition-overriding: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka

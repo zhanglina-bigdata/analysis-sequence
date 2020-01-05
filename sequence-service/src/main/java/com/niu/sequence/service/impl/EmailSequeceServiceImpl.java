@@ -2,7 +2,8 @@ package com.niu.sequence.service.impl;
 
 import com.niu.sequence.Enum.DateJoinPointEnum;
 import com.niu.sequence.annotation.JoinSequence;
-import com.niu.sequence.model.request.SequenceRequest;
+import com.niu.interfaces.sequence.model.request.SequenceRequest;
+
 import com.niu.sequence.service.EmailSequenceService;
 import com.niu.sequence.service.SnowSequenceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class EmailSequeceServiceImpl implements EmailSequenceService {
     @Autowired
     private SnowSequenceService snowSequenceService;
     @Override
-    @JoinSequence(prefix = "emil", preOvverride = "_" ,joinpoint = DateJoinPointEnum.SUFFIX_LAST)
+    @JoinSequence(prefix = "emil_niu", preOvverride = "_" ,joinpoint = DateJoinPointEnum.SUFFIX_LAST)
     public String getSequence() {
         return snowSequenceService.getSequence();
     }

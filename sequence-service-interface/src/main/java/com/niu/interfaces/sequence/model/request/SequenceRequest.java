@@ -1,6 +1,6 @@
-package com.niu.sequence.model.request;
+package com.niu.interfaces.sequence.model.request;
 
-import com.niu.sequence.model.BaseRequest;
+import com.niu.interfaces.sequence.model.BaseRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
